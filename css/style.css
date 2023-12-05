@@ -42,4 +42,39 @@ body {
     border: 1px solid rgb(52, 51, 51);
     height: 30px;
     width: 100%;
+    padding: 5px;
 }
+
+
+.button-add {
+
+    border: none;
+
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 5px;
+    color: white;
+    background-color: rgb(124, 124, 124);
+
+}
+
+
+.button-add:hover {
+    background-color: rgb(41, 41, 41);
+    border: none;
+
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 5px;
+    color: white;
+
+}
+
+
+.taskbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} 

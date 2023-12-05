@@ -24,32 +24,31 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-    todoList : [
-    { text: "Fare la spesa", done: false },
-    { text: "Studiare JavaScript", done: true },
-    { text: "Allenarsi", done: false },
-    { text: "Leggere un libro", done: true },
-    { text: "Scrivere codice", done: false }
-],
-
-        
-       
+      newTodoElement: "",
+      todoList: [
+        { text: "Fare la spesa", done: false },
+        { text: "Studiare JavaScript", done: true },
+        { text: "Allenarsi", done: false },
+        { text: "Leggere un libro", done: true },
+        { text: "Scrivere codice", done: false }
+      ],
     };
   },
 
-
   methods: {
+    addNewTodoItem(newElement) {
+      if (newElement.trim() !== "") {
+        this.todoList.push({ text: newElement, done: false });
+        this.newTodoElement = ""; // Pulisce l'input dopo l'aggiunta
+      }
+    },
 
-   
+    removeTodoItem(index) {
+      this.todoList.splice(index, 1);
+    },
 
-
-
-
-},
-
-
-
-
-
-
+    toggleDone(index) {
+      this.todoList[index].done = !this.todoList[index].done;
+    },
+  },
 }).mount('#app');

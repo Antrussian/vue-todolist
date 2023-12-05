@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slider</title>
+    <title>Vue ToDo List</title>
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 
@@ -16,22 +16,23 @@
         <main class="wrapper">
             <h1>Vue ToDo List</h1>
             <div class="taskbar">
-                <input type="text"
-                class="new-todo-element" name="userTodo" id="userTodo" >
+                <!-- Aggiunto l'evento @keyup.enter per intercettare il tasto ENTER -->
+                <input type="text" class="new-todo-element" name="userTodo" id="userTodo" v-model="newTodoElement" @keyup.enter="addNewTodoItem(newTodoElement)"  >
+                <!-- Aggiunto il pulsante "Aggiungi" -->
+                <button class="button-add" @click="addNewTodoItem(newTodoElement)">Aggiungi</button>
             </div>
 
             <ul class="todo-list">
-
-                <li class="todo-item" v-for="todoElement in todoList">
-                    <p> {{ todoElement.text}}</p>
-                    <span>x</span>
+                <!-- Utilizzato v-for per iterare sugli elementi della todoList -->
+                <li class="todo-item" v-for="(todoElement, index) in todoList" :key="index">
+                    <!-- Utilizzato la classe "done" se done è true -->
+                    <p :class="{ 'done': todoElement.done }" @click="toggleDone(index)">{{ todoElement.text }}</p>
+                    <!-- Aggiunto il pulsante "x" con l'evento @click per rimuovere il todo -->
+                    <span @click="removeTodoItem(index)">x</span>
                 </li>
-        
             </ul>
 
         </main>
-        
-    
 
     </div>
 
