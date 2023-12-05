@@ -13,6 +13,24 @@
 
     <div id="app">
 
+        <main class="wrapper">
+            <h1>Vue ToDo List</h1>
+            <div class="taskbar">
+                <input type="text"
+                class="new-todo-element" name="userTodo" id="userTodo" >
+            </div>
+
+            <ul class="todo-list">
+
+                <li class="todo-item" v-for="todoElement in todoList">
+                    <p> {{ todoElement.text}}</p>
+                    <span>x</span>
+                </li>
+        
+            </ul>
+
+        </main>
+        
     
 
     </div>

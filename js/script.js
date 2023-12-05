@@ -17,11 +17,21 @@ Bonus:
 */
 
 
+
+
 const { createApp } = Vue;
 
 createApp({
   data() {
     return {
+    todoList : [
+    { text: "Fare la spesa", done: false },
+    { text: "Studiare JavaScript", done: true },
+    { text: "Allenarsi", done: false },
+    { text: "Leggere un libro", done: true },
+    { text: "Scrivere codice", done: false }
+],
+
         
        
     };
